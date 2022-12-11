@@ -7,8 +7,12 @@ import NavBar from "components/NavBar";
 import MovieForm from "components/MovieForm";
 import Login from "./components/Login";
 import Register from "./components/Register";
+// import { getUsers } from "./store/users";
 
 const App = () => {
+  // const users = useSelector((state) => getUsers(state));
+  // console.log(users);
+
   return (
     <>
       <NavBar />
