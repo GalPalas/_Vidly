@@ -1,25 +1,21 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Customers from "components/Customers";
-import Movie from "components/Movie";
+import Movies from "components/Movies";
 import NotFound from "components/NotFound";
 import Rentals from "components/Rentals";
 import NavBar from "components/NavBar";
 import MovieForm from "components/MovieForm";
 import Login from "./components/Login";
 import Register from "./components/Register";
-// import { getUsers } from "./store/users";
 
 const App = () => {
-  // const users = useSelector((state) => getUsers(state));
-  // console.log(users);
-
   return (
     <>
       <NavBar />
       <main className="container">
         <Routes>
           <Route path="/movies/:id" element={<MovieForm />} />
-          <Route path="/movies" element={<Movie />} />
+          <Route path="/movies" element={<Movies />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/rentals" element={<Rentals />} />
           <Route path="/login" element={<Login />} />

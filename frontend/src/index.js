@@ -5,6 +5,7 @@ import configureAppStore from "../src/store/configureStore";
 import { Provider } from "react-redux";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const store = configureAppStore();
 
