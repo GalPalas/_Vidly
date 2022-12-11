@@ -7,9 +7,11 @@ const api =
   async (action) => {
     if (action.type !== actions.apiCallBegin.type) return next(action);
 
-    next(action);
+    const { url, onStart, onSuccess, onError } = action.payload;
 
-    const { url, onSuccess, onError } = action.payload;
+    if (onStart) dispatch({ type: onStart });
+
+    next(action);
 
     try {
       const response = await axios.request({
@@ -17,7 +19,8 @@ const api =
         method: "GET",
         url: url,
       });
-      dispatch({ type: onSuccess, payload: response.data });
+      dispatch(actions.apiCallSuccess(response.data));
+      if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
     } catch (ex) {
       dispatch({ type: onError, payload: ex.message });
     }
